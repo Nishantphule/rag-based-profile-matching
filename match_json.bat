@@ -18,9 +18,14 @@ REM
 REM    match_json.bat data\job_descriptions\02_genai_rag_engineer.txt --top-k 5 --use-llm
 REM        - custom JD + any extra job_matcher.py flags
 REM
-REM  Save to a file:
-REM    match_json.bat > result.json
-REM    match_json.bat data\job_descriptions\02_genai_rag_engineer.txt --top-k 5 > result.json
+REM    match_json.bat data\job_descriptions\02_genai_rag_engineer.txt --auto-filter --use-llm
+REM        - LLM extracts must-haves from the JD, generates per-candidate
+REM          reasoning, and produces a final shortlist recommendation.
+REM          Requires OPENROUTER_API_KEY in env or in a .env file.
+REM
+REM  Save to a file (use --output to bypass PowerShell's UTF-16 redirect):
+REM    match_json.bat data\job_descriptions\02_genai_rag_engineer.txt ^
+REM        --auto-filter --use-llm --output result.json
 REM ---------------------------------------------------------------------------
 
 REM Always run from the directory this bat file lives in.

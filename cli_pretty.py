@@ -97,7 +97,12 @@ def render_index_stats(stats: dict[str, Any]) -> None:
 def render_match_result(result: dict[str, Any]) -> None:
     """Render the full match result returned by `JobMatcher.match()`."""
     _render_jd(result.get("job_description", ""))
+    _render_auto_filter(result.get("auto_filter"))
     _render_filters(result.get("filters") or {})
+    _render_relaxed_notice(
+        result.get("auto_filter_relaxed"),
+        result.get("auto_filter_relaxed_skills") or [],
+    )
 
     matches = result.get("top_matches") or []
     if not matches:
@@ -118,6 +123,7 @@ def render_match_result(result: dict[str, Any]) -> None:
             console.print(_render_match_card(rank, m))
             console.print()
 
+    _render_shortlist_summary(result.get("shortlist_summary"))
     _render_footer(result)
 
 
@@ -151,6 +157,82 @@ def _render_filters(filters: dict[str, Any]) -> None:
         chips.append(_chip(f"must have: {s}", "yellow"))
 
     console.print(Padding(Columns(chips, expand=False, padding=(0, 1)), (1, 0, 0, 0)))
+
+
+def _render_auto_filter(auto: dict[str, Any] | None) -> None:
+    """Show what the LLM auto-extracted from the JD."""
+    if not auto:
+        return
+
+    rows: list[Text] = []
+    seniority = (auto.get("seniority") or "").strip()
+    domain = (auto.get("domain") or "").strip()
+    if seniority and seniority != "unknown":
+        rows.append(Text.assemble(("seniority: ", "dim"), (seniority, "bold cyan")))
+    if domain:
+        rows.append(Text.assemble(("domain: ", "dim"), (domain, "bold cyan")))
+
+    min_exp = float(auto.get("min_experience_years") or 0)
+    rows.append(Text.assemble(
+        ("min experience: ", "dim"),
+        (f"{min_exp:g} yrs" if min_exp else "(none)", "bold cyan"),
+    ))
+
+    must = auto.get("required_skills") or []
+    if must:
+        rows.append(Text("required skills (must-have):", style="dim"))
+        rows.append(Padding(Columns([_chip(s, "cyan") for s in must], padding=(0, 1)), (0, 0, 0, 2)))
+
+    nice = auto.get("nice_to_have_skills") or []
+    if nice:
+        rows.append(Text("nice-to-have skills:", style="dim"))
+        rows.append(Padding(Columns([_chip(s, "blue") for s in nice], padding=(0, 1)), (0, 0, 0, 2)))
+
+    console.print(
+        Panel(
+            Group(*rows),
+            title="[bold cyan]LLM-extracted JD requirements[/bold cyan]",
+            border_style="cyan",
+            box=ROUNDED,
+            padding=(1, 2),
+        )
+    )
+
+
+def _render_relaxed_notice(relaxed: Any, attempted: list[str]) -> None:
+    if not relaxed:
+        return
+    skills_str = ", ".join(attempted) if attempted else "(none)"
+    msg = (
+        f"No candidate had ALL {len(attempted)} LLM-extracted must-have skills "
+        f"({skills_str}). Showing the strongest matches without the "
+        "skill-intersection filter (min-experience still applied)."
+    )
+    console.print()
+    console.print(
+        Panel(
+            Text(msg, style="yellow"),
+            title="[bold yellow]Auto-filter relaxed[/bold yellow]",
+            border_style="yellow",
+            box=ROUNDED,
+            padding=(0, 1),
+        )
+    )
+
+
+def _render_shortlist_summary(summary: str | None) -> None:
+    if not summary:
+        return
+    console.print()
+    console.print(
+        Panel(
+            Text(summary, style="white"),
+            title="[bold green]Shortlist recommendation (LLM)[/bold green]",
+            border_style="green",
+            box=ROUNDED,
+            padding=(1, 2),
+        )
+    )
 
 
 def _render_match_card(rank: int, m: dict[str, Any]) -> Panel:

@@ -59,10 +59,17 @@ from resume_rag import (
 )
 
 try:  # optional - LLM reasoning is purely additive
-    from llm import OpenRouterReasoner, ReasoningInput
+    from llm import (
+        ExtractedFilters,
+        OpenRouterReasoner,
+        ReasoningInput,
+        ShortlistCandidate,
+    )
 except Exception:  # pragma: no cover
+    ExtractedFilters = None    # type: ignore[assignment]
     OpenRouterReasoner = None  # type: ignore[assignment]
     ReasoningInput = None      # type: ignore[assignment]
+    ShortlistCandidate = None  # type: ignore[assignment]
 
 log = logging.getLogger("job_matcher")
 logging.basicConfig(
@@ -104,8 +111,31 @@ def tokenize(text: str) -> list[str]:
     return [t.lower() for t in _TOKEN_RE.findall(text)]
 
 
+_SKILL_SYNONYMS: dict[str, str] = {
+    "large language models": "llms",
+    "large language model": "llms",
+    "llm": "llms",
+    "natural language processing": "nlp",
+    "computer vision (cv)": "computer vision",
+    "amazon web services": "aws",
+    "google cloud platform": "gcp",
+    "microsoft azure": "azure",
+    "kubernetes (k8s)": "kubernetes",
+    "k8s": "kubernetes",
+    "ml": "machine learning",
+    "dl": "deep learning",
+    "vector database": "vector databases",
+    "vector store": "vector databases",
+    "vector stores": "vector databases",
+    "retrieval augmented generation": "rag",
+    "retrieval-augmented generation": "rag",
+    "huggingface": "hugging face",
+}
+
 def _normalize_skill(s: str) -> str:
-    return re.sub(r"[\s_-]+", " ", s.strip().lower())
+    base = re.sub(r"[_-]+", " ", s.strip().lower())
+    base = re.sub(r"\s+", " ", base)
+    return _SKILL_SYNONYMS.get(base, base)
 
 
 def extract_jd_skills(jd_text: str) -> list[str]:
@@ -301,14 +331,37 @@ class JobMatcher:
         top_k: int = 10,
         min_experience: float = 0.0,
         required_skills: list[str] | None = None,
+        auto_filter: bool = False,
     ) -> dict:
         """Run the full matching pipeline.
 
         Returns the assignment-shaped dict:
             {"job_description": ..., "top_matches": [ ... ]}
+
+        When `auto_filter=True` and a `reasoner` is configured, the LLM extracts
+        `min_experience` and `required_skills` from the JD. Any value the caller
+        passed explicitly takes precedence (so the human stays in charge).
         """
         t0 = time.perf_counter()
         required_skills = [_normalize_skill(s) for s in (required_skills or [])]
+
+        # ---- LLM auto-filter (optional) ------------------------------
+        auto_filter_info: dict | None = None
+        if auto_filter and self.reasoner is not None:
+            try:
+                extracted = self.reasoner.extract_filters(job_description)
+            except Exception:  # pragma: no cover - defensive
+                extracted = None
+            if extracted is not None:
+                auto_filter_info = extracted.to_dict()
+                if not min_experience and extracted.min_experience_years > 0:
+                    min_experience = float(extracted.min_experience_years)
+                if not required_skills and extracted.required_skills:
+                    required_skills = [_normalize_skill(s) for s in extracted.required_skills]
+                log.info(
+                    "Auto-extracted filters: min_experience=%s, required_skills=%s",
+                    min_experience, required_skills,
+                )
 
         where = self._build_where(min_experience)
         chunk_hits = self.retriever.search(job_description, where=where)
@@ -386,10 +439,33 @@ class JobMatcher:
         candidates.sort(key=lambda c: c.match_score, reverse=True)
         top = candidates[:top_k]
 
+        # If auto-filter was so strict that nothing passed, retry without the
+        # required-skills intersection but keep min_experience. Mark the result
+        # so the renderer can show a "relaxed" indicator.
+        relaxed = False
+        relaxed_attempted_skills: list[str] = []
+        if not top and auto_filter_info and required_skills:
+            relaxed_attempted_skills = list(required_skills)
+            log.warning(
+                "Auto-filter too strict (%d required skills): no candidates "
+                "passed. Relaxing required-skills filter and retrying.",
+                len(required_skills),
+            )
+            relaxed_top = self._rerun_without_required_skills(
+                job_description=job_description,
+                top_k=top_k,
+                where=where,
+                required_skills=[],
+            )
+            top = relaxed_top
+            relaxed = True
+
         # LLM enrichment - only on the top results we'll actually return.
         # The deterministic reasoning we already wrote stays as a fallback.
+        shortlist_summary: str | None = None
         if self.reasoner is not None and self.llm_top_k > 0:
             self._enrich_with_llm(top[: self.llm_top_k], job_description)
+            shortlist_summary = self._shortlist_summary(top, job_description)
 
         elapsed_ms = int((time.perf_counter() - t0) * 1000)
         log.info("Matched %d / %d candidates in %d ms", len(top), len(candidates), elapsed_ms)
@@ -398,14 +474,106 @@ class JobMatcher:
             "job_description": job_description,
             "filters": {
                 "min_experience": min_experience,
-                "required_skills": required_skills,
+                "required_skills": [] if relaxed else required_skills,
             },
+            "auto_filter": auto_filter_info,
+            "auto_filter_relaxed": relaxed,
+            "auto_filter_relaxed_skills": relaxed_attempted_skills,
             "latency_ms": elapsed_ms,
             "llm_enabled": self.reasoner is not None,
+            "shortlist_summary": shortlist_summary,
             "top_matches": [self._public_dict(c) for c in top],
         }
 
+    # ---- Relaxed rerun (used when auto-filter is too strict) ---------
+
+    def _rerun_without_required_skills(
+        self,
+        job_description: str,
+        top_k: int,
+        where: dict | None,
+        required_skills: list[str],
+    ) -> list["CandidateMatch"]:
+        """Run the matching pipeline without the required-skills intersection.
+
+        Used as a graceful fallback when --auto-filter pulled too many
+        must-haves out of a JD and nothing passed.
+        """
+        chunk_hits = self.retriever.search(job_description, where=where)
+        per_resume: dict[str, dict] = {}
+        for hit in chunk_hits:
+            rid = hit["resume_id"]
+            slot = per_resume.setdefault(
+                rid,
+                {"metadata": hit["metadata"], "chunks": [],
+                 "best_section_scores": {}, "semantic_max": 0.0, "keyword_max": 0.0},
+            )
+            slot["chunks"].append(hit)
+            slot["semantic_max"] = max(slot["semantic_max"], hit["semantic"])
+            slot["keyword_max"] = max(slot["keyword_max"], hit["keyword"])
+            slot["best_section_scores"][hit["section"]] = max(
+                slot["best_section_scores"].get(hit["section"], 0.0), hit["score"]
+            )
+
+        jd_skills = extract_jd_skills(job_description)
+        out: list[CandidateMatch] = []
+        for slot in per_resume.values():
+            meta = slot["metadata"]
+            cand_skills = self._skills_from_meta(meta)
+            matched_skills = sorted(set(jd_skills) & set(cand_skills))
+            score = self._score(
+                semantic_max=slot["semantic_max"],
+                keyword_max=slot["keyword_max"],
+                jd_skills=jd_skills,
+                matched_skills=matched_skills,
+            )
+            excerpts = self._select_excerpts(slot["chunks"], k=3)
+            reasoning = self._build_reasoning(
+                meta=meta, jd_skills=jd_skills, matched_skills=matched_skills,
+                section_scores=slot["best_section_scores"],
+                semantic=slot["semantic_max"], keyword=slot["keyword_max"],
+            )
+            out.append(
+                CandidateMatch(
+                    candidate_name=meta.get("name", ""),
+                    resume_path=meta.get("file_path", ""),
+                    match_score=int(round(score)),
+                    matched_skills=[s.title() for s in matched_skills],
+                    relevant_excerpts=excerpts,
+                    reasoning=reasoning,
+                    semantic_score=round(float(slot["semantic_max"]), 4),
+                    keyword_score=round(float(slot["keyword_max"]), 4),
+                    experience_years=float(meta.get("experience_years", 0.0) or 0.0),
+                )
+            )
+        out.sort(key=lambda c: c.match_score, reverse=True)
+        return out[:top_k]
+
     # ---- LLM enrichment ----------------------------------------------
+
+    def _shortlist_summary(
+        self,
+        top: list["CandidateMatch"],
+        job_description: str,
+    ) -> str | None:
+        """LLM-generated executive summary across the top candidates."""
+        if not top or self.reasoner is None or ShortlistCandidate is None:
+            return None
+        shortlist = [
+            ShortlistCandidate(
+                rank=i + 1,
+                name=c.candidate_name,
+                title="",
+                experience_years=c.experience_years,
+                match_score=c.match_score,
+                matched_skills=list(c.matched_skills),
+            )
+            for i, c in enumerate(top)
+        ]
+        try:
+            return self.reasoner.shortlist_summary(job_description, shortlist)
+        except Exception:  # pragma: no cover
+            return None
 
     def _enrich_with_llm(self, top: list["CandidateMatch"], job_description: str) -> None:
         """Replace the template reasoning with an LLM-generated one, in-place.
@@ -548,11 +716,15 @@ def _parse_args() -> argparse.Namespace:
 
     # LLM reasoning (optional, requires OPENROUTER_API_KEY)
     p.add_argument("--use-llm", action="store_true",
-                   help="Replace template reasoning with LLM-generated reasoning for the top candidates.")
+                   help="Replace template reasoning with LLM-generated reasoning for the top candidates "
+                        "AND emit a final shortlist recommendation.")
     p.add_argument("--llm-top-k", type=int, default=3,
                    help="How many top candidates get LLM-generated reasoning (rest use the template).")
     p.add_argument("--llm-model", default=None,
                    help="Override LLM model (default: openai/gpt-5.2 via OpenRouter).")
+    p.add_argument("--auto-filter", action="store_true",
+                   help="Use the LLM to extract min_experience + required_skills from the JD. "
+                        "Any value passed via --min-experience/--required-skills takes precedence.")
 
     p.add_argument("--json", action="store_true",
                    help="Print raw JSON instead of the pretty rich-formatted output.")
@@ -579,15 +751,16 @@ def main() -> None:
     required_skills = [s.strip() for s in args.required_skills.split(",") if s.strip()]
 
     reasoner = None
-    if args.use_llm:
+    needs_llm = args.use_llm or args.auto_filter
+    if needs_llm:
         if OpenRouterReasoner is None:
-            log.error("--use-llm requested but the `openai` package is not installed.")
+            log.error("--use-llm/--auto-filter requested but the `openai` package is not installed.")
         else:
             kwargs = {"model": args.llm_model} if args.llm_model else {}
             reasoner = OpenRouterReasoner.from_env(**kwargs)
             if reasoner is None:
-                log.error("--use-llm requested but OPENROUTER_API_KEY is not set; "
-                          "falling back to template reasoning.")
+                log.error("LLM features requested but OPENROUTER_API_KEY is not set; "
+                          "falling back to deterministic behaviour.")
 
     matcher = JobMatcher(
         db_path=args.db_path,
@@ -602,6 +775,7 @@ def main() -> None:
         top_k=args.top_k,
         min_experience=args.min_experience,
         required_skills=required_skills,
+        auto_filter=args.auto_filter,
     )
 
     if args.json:

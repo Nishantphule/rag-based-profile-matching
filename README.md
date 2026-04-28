@@ -55,33 +55,47 @@ python job_matcher.py --jd data/job_descriptions/01_senior_python_ml_engineer.tx
 # 2) Run with --use-llm:
 python job_matcher.py --jd data/job_descriptions/02_genai_rag_engineer.txt --use-llm --llm-top-k 3
 
+# LLM auto-extracts hard filters (min_experience + required_skills) from the JD,
+# and emits a final shortlist recommendation. Combine with --use-llm for the full
+# AI-augmented experience.
+python job_matcher.py --jd data/job_descriptions/02_genai_rag_engineer.txt --auto-filter --use-llm
+
 # Reproduce all metrics, ablation and charts
 jupyter notebook notebooks/experimentation.ipynb
 ```
 
-## LLM-Augmented Reasoning (Optional)
+## LLM-Augmented Features (Optional)
 
 The retrieval, ranking and scoring pipeline is **fully deterministic** so you can
-audit every score. The LLM is used **only to write a richer 2-3 sentence
-justification for the top-K results** that have already been chosen by the
-retriever. Inputs handed to the LLM are strictly the JD text plus the
-candidate's matched skills, top excerpts, retrieval scores and years of
-experience — no resume content the retriever didn't already select. If the API
-call fails for any reason (no key, network, rate-limit, timeout) the system
-silently falls back to the deterministic template.
+audit every score. The LLM is used in three strictly post-retrieval ways, each
+gated behind its own flag:
+
+| Flag | What the LLM does | Demo value |
+| --- | --- | --- |
+| `--use-llm` | Per-candidate **reasoning paragraphs** (top `--llm-top-k`, default 3). | Replaces the template "matched skills X, Y, Z" with grounded, JD-specific prose. |
+| `--use-llm` | Final **shortlist recommendation** comparing the top-K. | One-paragraph executive summary at the bottom of pretty output. |
+| `--auto-filter` | Parses the JD into structured **hard filters** (`min_experience` + 2-3 must-have skills) before retrieval. | The user just pastes a JD; no need to type `--required-skills python,...` by hand. |
+
+Inputs handed to the LLM are strictly the JD text and the deterministic
+retriever's outputs — never the full resume corpus. If the API call fails for
+any reason (no key, network, rate-limit, timeout, malformed JSON) the system
+silently falls back to deterministic behaviour. Any value the user passes via
+`--min-experience` / `--required-skills` always wins over `--auto-filter`.
 
 ```bash
-# Without the key, the same command still works - it just uses the template.
+# Without the key the same command still works - it just uses the template.
 python job_matcher.py --jd <jd_file> --use-llm
-# WARNING: --use-llm requested but OPENROUTER_API_KEY is not set; falling back...
 
 # With the key (set via .env or shell env):
 $env:OPENROUTER_API_KEY = "sk-or-..."
 python job_matcher.py --jd <jd_file> --use-llm --llm-top-k 3
+python job_matcher.py --jd <jd_file> --auto-filter            # filters only
+python job_matcher.py --jd <jd_file> --auto-filter --use-llm  # full AI mode
 ```
 
 Defaults (override via `.env`): model `openai/gpt-5.2`, base URL
-`https://openrouter.ai/api/v1`, temperature `0.2`, max output 200 tokens.
+`https://openrouter.ai/api/v1`, temperature `0.2` (reasoning) / `0.0`
+(extraction), 200-800 max output tokens depending on the call.
 
 ## Design Decisions
 
@@ -135,6 +149,14 @@ The implementation also adds these observability fields on top of the spec
 (safe to ignore if you only need the schema above):
 
 - `filters` — the hard filters applied (`min_experience`, `required_skills`).
+- `auto_filter` — when `--auto-filter` is on: the structured filter the LLM
+  parsed from the JD (`min_experience_years`, `required_skills`,
+  `nice_to_have_skills`, `seniority`, `domain`).
+- `auto_filter_relaxed` / `auto_filter_relaxed_skills` — `true` if the
+  intersection was so strict that nothing passed and the system fell back to a
+  relaxed query; the original attempted skills are reported alongside.
+- `shortlist_summary` — when `--use-llm` is on: one-paragraph executive
+  recommendation across the top-K.
 - `latency_ms` — total matcher latency (retrieval + scoring + optional LLM).
 - `llm_enabled` — `true` when LLM-augmented reasoning was used.
 - `_debug` (per match) — `semantic_score`, `keyword_score`, `experience_years`.
