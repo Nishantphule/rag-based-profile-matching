@@ -1,0 +1,22 @@
+Farhan Ahmed
+Senior Data Engineer (Streaming)
+Email: farhan.ahmed@example.com | Phone: +91-97777-11111 | Location: Hyderabad, India
+Total Experience: 8 years
+
+SUMMARY
+Streaming-first data engineer; production Kafka, Flink and Spark.
+
+SKILLS
+Python, Scala, Kafka, Flink, Spark Streaming, Airflow, AWS, Snowflake, SQL, dbt
+
+EXPERIENCE
+- Senior Data Engineer, Uber India (2020 - Present)
+  Owns the surge-pricing event pipeline.
+- Data Engineer, Walmart Labs (2016 - 2020)
+  Built Spark jobs for inventory.
+
+EDUCATION
+- B.Tech, CSE, IIT Guwahati (2016)
+
+PROJECTS
+- Apache Flink contributor (3 PRs merged).

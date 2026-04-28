@@ -1,0 +1,25 @@
+Rahul Bose
+Data Scientist
+Email: rahul.bose@example.com | Phone: +91-98888-99999 | Location: Kolkata, India
+Total Experience: 9 years
+
+SUMMARY
+Data scientist with 9 years across fintech and e-commerce. Strong on experimentation, causal inference and time-series.
+
+SKILLS
+Python, R, SQL, Causal Inference, A/B Testing, Machine Learning, Time Series, PyMC, Tableau
+
+EXPERIENCE
+- Principal Data Scientist, PolicyBazaar (2020 - Present)
+  Owns experimentation platform; runs 200+ A/B tests/year.
+- Senior Data Scientist, OYO (2017 - 2020)
+  Built dynamic pricing models for budget hotels.
+- Data Scientist, Mu Sigma (2015 - 2017)
+  Marketing mix modeling for CPG clients.
+
+EDUCATION
+- MBA, IIM Calcutta (2015)
+- B.Stat, Indian Statistical Institute (2013)
+
+PROJECTS
+- Co-author of an internal causal inference handbook.

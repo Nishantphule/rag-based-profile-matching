@@ -1,0 +1,23 @@
+Sai Krishna
+NLP Engineer
+Email: sai.krishna@example.com | Phone: +91-94444-66666 | Location: Bangalore, India
+Total Experience: 5 years
+
+SUMMARY
+NLP engineer focused on multilingual question answering for Indian languages.
+
+SKILLS
+Python, PyTorch, Hugging Face, Transformers, NLP, RAG, Multilingual, Indic NLP, FastAPI
+
+EXPERIENCE
+- NLP Engineer, AI4Bharat (2021 - Present)
+  Trained Indic-BERT variants and built QA datasets in 11 languages.
+- ML Engineer, Reverie Language Tech (2019 - 2021)
+  Built transliteration models.
+
+EDUCATION
+- M.Tech, AI, IIIT Bangalore (2019)
+- B.Tech, CSE, JNTU Hyderabad (2017)
+
+PROJECTS
+- Co-author of IndicGLUE benchmark.

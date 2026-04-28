@@ -1,0 +1,26 @@
+Aarav Sharma
+Senior Machine Learning Engineer
+Email: aarav.sharma@example.com | Phone: +91-98765-43210 | Location: Bangalore, India
+Total Experience: 8 years
+
+SUMMARY
+Senior ML Engineer with 8 years building large-scale recommendation and NLP systems. Led a team of 6 engineers to ship a transformer-based search ranker serving 40M users.
+
+SKILLS
+Python, PyTorch, TensorFlow, Transformers, LLMs, Machine Learning, Deep Learning, MLOps, AWS SageMaker, Kubernetes, Docker, SQL
+
+EXPERIENCE
+- Staff ML Engineer, Flipkart (2022 - Present)
+  Designed and shipped a transformer-based product ranker that lifted GMV by 6.2%. Owned the offline + online evaluation pipeline.
+- Senior ML Engineer, Swiggy (2019 - 2022)
+  Built ETA prediction models in PyTorch reducing MAE by 18%. Productionized models with Kubernetes + Triton.
+- ML Engineer, Myntra (2017 - 2019)
+  Worked on visual search with CNN embeddings and FAISS.
+
+EDUCATION
+- M.Tech, Computer Science, IIT Bombay (2017)
+- B.Tech, Information Technology, NIT Trichy (2015)
+
+PROJECTS
+- Open-source contributor to Hugging Face Transformers (3 PRs merged).
+- Built a RAG-based internal documentation assistant on LangChain + Chroma.

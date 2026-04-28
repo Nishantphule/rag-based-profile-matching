@@ -1,0 +1,22 @@
+Aditya Rao
+GenAI Engineer
+Email: aditya.rao@example.com | Phone: +91-93333-55555 | Location: Bangalore, India
+Total Experience: 4 years
+
+SUMMARY
+Applied GenAI engineer building RAG and agentic systems on top of LLMs.
+
+SKILLS
+Python, LangChain, LlamaIndex, RAG, Vector Databases, ChromaDB, Pinecone, OpenAI, LLMs, Prompt Engineering, Machine Learning
+
+EXPERIENCE
+- Senior ML Engineer, Sarvam AI (2023 - Present)
+  Built a multi-agent RAG system over enterprise PDFs; cut ticket deflection time from 8 minutes to 90 seconds.
+- ML Engineer, Glean (2021 - 2023)
+  Worked on enterprise search ranking.
+
+EDUCATION
+- B.Tech, CSE, BITS Goa (2021)
+
+PROJECTS
+- Built `chroma-rag-toolkit` (open source) used by 3K+ developers.

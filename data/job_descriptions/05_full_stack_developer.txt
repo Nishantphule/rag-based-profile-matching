@@ -1,0 +1,21 @@
+Full Stack Developer (React + Node)
+BrightCart | Gurgaon, India
+
+ABOUT THE ROLE
+Build customer-facing features end-to-end across a React frontend and Node.js BFF for our e-commerce checkout.
+
+MUST HAVE
+- 3+ years of React in production
+- Node.js / Express experience
+- TypeScript
+- Comfort with relational databases (PostgreSQL or MySQL)
+
+NICE TO HAVE
+- Next.js
+- AWS / Docker
+- Experience with checkout / payments
+
+RESPONSIBILITIES
+- Own end-to-end delivery of checkout features
+- Improve frontend Web Vitals
+- Collaborate with designers and PMs in a small squad

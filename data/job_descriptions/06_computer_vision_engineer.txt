@@ -1,0 +1,21 @@
+Computer Vision Engineer
+AutonomyLabs | Bangalore, India
+
+ABOUT THE ROLE
+Design and ship perception models (detection, tracking, segmentation) for our autonomous industrial vehicles.
+
+MUST HAVE
+- 5+ years in Computer Vision / Deep Learning
+- Strong Python and C++
+- PyTorch or TensorFlow
+- Experience deploying models on edge (TensorRT or similar)
+
+NICE TO HAVE
+- ROS / ROS2
+- CUDA
+- Experience in robotics or autonomous vehicles
+
+RESPONSIBILITIES
+- Own the perception stack roadmap
+- Train and deploy detection / tracking models
+- Optimize inference for embedded GPUs

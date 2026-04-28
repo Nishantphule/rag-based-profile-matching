@@ -1,0 +1,23 @@
+Emily Chen
+Senior Python ML Engineer
+Email: emily.chen@example.com | Phone: +1-415-555-2233 | Location: Seattle, USA
+Total Experience: 7 years
+
+SUMMARY
+Senior ML engineer with 7 years of Python and a strong production-ML track record. Loves clean APIs.
+
+SKILLS
+Python, PyTorch, scikit-learn, MLflow, Airflow, Spark, AWS, Kubernetes, Machine Learning, Deep Learning, MLOps
+
+EXPERIENCE
+- Senior ML Engineer, Stripe (2021 - Present)
+  Owns fraud model lifecycle: training, serving, monitoring.
+- ML Engineer, Lyft (2018 - 2021)
+  ETA models for the marketplace team.
+
+EDUCATION
+- M.S., CS, University of Washington (2018)
+- B.S., CS, UC San Diego (2016)
+
+PROJECTS
+- Open-source: ml-monitoring-toolkit (1.8K stars).

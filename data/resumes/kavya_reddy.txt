@@ -1,0 +1,22 @@
+Kavya Reddy
+iOS Engineer
+Email: kavya.reddy@example.com | Phone: +91-93333-44444 | Location: Hyderabad, India
+Total Experience: 4 years
+
+SUMMARY
+iOS engineer with consumer fintech experience.
+
+SKILLS
+Swift, SwiftUI, Objective-C, iOS, Combine, Core Data, XCTest
+
+EXPERIENCE
+- iOS Engineer, CRED (2022 - Present)
+  Built the rewards module.
+- iOS Engineer, Capillary (2020 - 2022)
+  Worked on loyalty apps.
+
+EDUCATION
+- B.E., CSE, Osmania University (2020)
+
+PROJECTS
+- WWDC scholarship recipient 2019.

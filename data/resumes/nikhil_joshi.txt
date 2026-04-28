@@ -1,0 +1,22 @@
+Nikhil Joshi
+Cybersecurity Analyst
+Email: nikhil.joshi@example.com | Phone: +91-95555-77777 | Location: Pune, India
+Total Experience: 7 years
+
+SUMMARY
+Security analyst specializing in cloud security and incident response.
+
+SKILLS
+AWS Security, SIEM, Splunk, Python, Threat Modeling, Pentesting, Burp Suite, OWASP
+
+EXPERIENCE
+- Senior Security Analyst, TCS (2020 - Present)
+  Lead investigator on a 2023 ransomware incident.
+- Security Analyst, Wipro (2017 - 2020)
+  Tier-2 SOC analyst.
+
+EDUCATION
+- B.Tech, IT, MIT Pune (2017)
+
+PROJECTS
+- CISSP certified.

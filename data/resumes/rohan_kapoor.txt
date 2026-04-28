@@ -1,0 +1,22 @@
+Rohan Kapoor
+Junior Data Scientist
+Email: rohan.kapoor@example.com | Phone: +91-90909-90909 | Location: Pune, India
+Total Experience: 2 years
+
+SUMMARY
+Data scientist early in career, comfortable with classical ML and analytics.
+
+SKILLS
+Python, scikit-learn, Pandas, SQL, Tableau, Statistics, Machine Learning
+
+EXPERIENCE
+- Data Scientist, Mu Sigma (2023 - Present)
+  Built churn models for a US telecom client (XGBoost, AUC 0.81).
+- Data Analyst Intern, Tata 1mg (2022 - 2023)
+  SQL dashboards for marketing funnel analysis.
+
+EDUCATION
+- B.Sc., Statistics, Fergusson College (2023)
+
+PROJECTS
+- Kaggle Titanic top 12% (notebook).

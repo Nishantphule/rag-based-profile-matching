@@ -1,0 +1,20 @@
+Ritika Agarwal
+Business Analyst
+Email: ritika.agarwal@example.com | Phone: +91-96666-88888 | Location: Mumbai, India
+Total Experience: 4 years
+
+SUMMARY
+Business analyst at the intersection of finance and product.
+
+SKILLS
+SQL, Excel, Power BI, Python, Stakeholder Management, Requirements Gathering, Process Mapping
+
+EXPERIENCE
+- Business Analyst, Goldman Sachs (2021 - Present)
+  Owns trade exception monitoring dashboards.
+- Junior BA, Deloitte (2020 - 2021)
+  Insurance domain projects.
+
+EDUCATION
+- MBA, Finance, NMIMS Mumbai (2020)
+- B.Com, St. Xavier's Mumbai (2018)

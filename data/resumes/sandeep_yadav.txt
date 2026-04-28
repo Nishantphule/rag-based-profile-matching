@@ -1,0 +1,20 @@
+Sandeep Yadav
+Embedded Systems Engineer
+Email: sandeep.yadav@example.com | Phone: +91-90000-33333 | Location: Bangalore, India
+Total Experience: 8 years
+
+SUMMARY
+Embedded engineer for automotive ECUs.
+
+SKILLS
+C, C++, RTOS, ARM Cortex, AUTOSAR, CAN, MISRA C, Embedded Linux
+
+EXPERIENCE
+- Senior Embedded Engineer, Bosch India (2018 - Present)
+  Owns powertrain ECU firmware.
+- Embedded Engineer, Continental (2015 - 2018)
+  Sensor fusion firmware.
+
+EDUCATION
+- M.Tech, VLSI, IIT Kharagpur (2015)
+- B.E., ECE, BMS College of Engineering (2013)

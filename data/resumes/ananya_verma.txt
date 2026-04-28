@@ -1,0 +1,22 @@
+Ananya Verma
+Full Stack Developer
+Email: ananya.verma@example.com | Phone: +91-93333-22222 | Location: Gurgaon, India
+Total Experience: 4 years
+
+SUMMARY
+Full-stack developer comfortable across React and Node.js.
+
+SKILLS
+JavaScript, TypeScript, React, Next.js, Node.js, Express, MongoDB, PostgreSQL, AWS, Docker
+
+EXPERIENCE
+- Full Stack Developer, Zomato (2022 - Present)
+  Owned the merchant dashboard React app and its Node.js BFF.
+- Software Engineer, Paytm (2020 - 2022)
+  Worked on the merchant onboarding KYC flow.
+
+EDUCATION
+- B.Tech, CSE, DTU Delhi (2020)
+
+PROJECTS
+- Side project: open-source Markdown-based blog engine (1.2K stars).

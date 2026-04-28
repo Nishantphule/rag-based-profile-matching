@@ -1,0 +1,22 @@
+Priya Iyer
+Machine Learning Engineer
+Email: priya.iyer@example.com | Phone: +91-90000-11111 | Location: Hyderabad, India
+Total Experience: 5 years
+
+SUMMARY
+ML Engineer with 5 years of experience focused on NLP, LLM fine-tuning and retrieval systems.
+
+SKILLS
+Python, PyTorch, Hugging Face, LangChain, RAG, Vector Databases, Pinecone, ChromaDB, FastAPI, AWS, Machine Learning, NLP
+
+EXPERIENCE
+- ML Engineer, Razorpay (2021 - Present)
+  Fine-tuned Llama-2 7B on internal support tickets; deployed a RAG assistant cutting agent handle time by 25%.
+- Data Scientist, Freshworks (2020 - 2021)
+  Built intent classifiers (BERT) and entity extractors for chatbots.
+
+EDUCATION
+- B.E., Computer Science, BITS Pilani (2020)
+
+PROJECTS
+- Public blog series on building RAG with ChromaDB (15K reads).

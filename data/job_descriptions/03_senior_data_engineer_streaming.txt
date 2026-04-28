@@ -1,0 +1,20 @@
+Senior Data Engineer - Streaming
+Trailblazer Logistics | Hyderabad, India
+
+ABOUT THE ROLE
+Own the real-time data backbone of our logistics platform: Kafka, Flink and Spark Streaming.
+
+MUST HAVE
+- 6+ years of data engineering experience
+- Production Kafka and either Flink or Spark Streaming
+- Strong Python or Scala
+- AWS
+
+NICE TO HAVE
+- Snowflake / Databricks
+- dbt
+
+RESPONSIBILITIES
+- Own ingestion and processing of 50K+ events/second
+- Define SLOs for data freshness and correctness
+- Mentor 2-3 mid-level engineers

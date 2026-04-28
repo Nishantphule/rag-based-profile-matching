@@ -1,0 +1,21 @@
+GenAI / RAG Engineer
+NovaSearch | Remote (India)
+
+ABOUT THE ROLE
+Build retrieval-augmented generation systems on top of large language models. You will own the retrieval, ranking and prompt stack of our flagship enterprise search product.
+
+MUST HAVE
+- 3+ years of Python in production
+- Hands-on experience with LLMs (OpenAI / Llama / Mistral)
+- Vector databases (ChromaDB, Pinecone, Weaviate or FAISS)
+- Strong NLP fundamentals
+
+NICE TO HAVE
+- LangChain / LlamaIndex
+- Prompt engineering and evaluation harnesses
+- Multilingual NLP
+
+RESPONSIBILITIES
+- Design chunking and embedding strategies for enterprise PDFs
+- Implement hybrid retrieval (semantic + BM25)
+- Build evaluation pipelines for retrieval quality and hallucinations

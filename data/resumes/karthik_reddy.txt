@@ -1,0 +1,22 @@
+Karthik Reddy
+Data Engineer
+Email: karthik.reddy@example.com | Phone: +91-94444-55555 | Location: Hyderabad, India
+Total Experience: 6 years
+
+SUMMARY
+Data engineer specializing in real-time pipelines and data lakes.
+
+SKILLS
+Python, Scala, Spark, Kafka, Airflow, Snowflake, Databricks, AWS, SQL, dbt
+
+EXPERIENCE
+- Senior Data Engineer, Walmart Labs (2021 - Present)
+  Migrated 200+ Airflow DAGs to a Spark-on-Kubernetes platform.
+- Data Engineer, PhonePe (2018 - 2021)
+  Built the fraud detection feature store on Kafka + Flink.
+
+EDUCATION
+- B.Tech, CSE, IIIT Hyderabad (2018)
+
+PROJECTS
+- Talk at PyData Hyderabad on idempotent stream processing.

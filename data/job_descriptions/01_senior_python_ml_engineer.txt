@@ -1,0 +1,21 @@
+Senior Python ML Engineer
+Acme AI | Bangalore / Remote (India)
+
+ABOUT THE ROLE
+We are looking for a Senior Python ML Engineer with 5+ years of experience to own end-to-end model lifecycles, from data to production serving, on AWS.
+
+MUST HAVE
+- 5+ years of professional Python experience
+- Hands-on Machine Learning / Deep Learning in production
+- Production experience with AWS or GCP
+- Comfort with Docker and Kubernetes
+
+NICE TO HAVE
+- PyTorch
+- MLOps tooling (MLflow, Airflow, Kubeflow)
+- Experience leading or mentoring engineers
+
+RESPONSIBILITIES
+- Design, train and ship ML models for ranking and recommendations
+- Own CI/CD and monitoring for the model serving stack
+- Partner with platform and product teams on data pipelines

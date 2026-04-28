@@ -1,0 +1,22 @@
+Mohammed Imran
+Mobile Engineer (Android)
+Email: mohammed.imran@example.com | Phone: +91-92222-33333 | Location: Bangalore, India
+Total Experience: 6 years
+
+SUMMARY
+Android engineer specializing in offline-first apps.
+
+SKILLS
+Kotlin, Java, Android, Jetpack Compose, Room, Coroutines, Firebase, MVVM
+
+EXPERIENCE
+- Senior Android Engineer, Khatabook (2021 - Present)
+  Owns the offline sync engine.
+- Android Engineer, Times Internet (2017 - 2021)
+  Worked on the TOI app.
+
+EDUCATION
+- B.E., CSE, MS Ramaiah Institute of Technology (2017)
+
+PROJECTS
+- Speaker at DroidCon India 2023.

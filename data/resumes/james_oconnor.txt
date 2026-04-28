@@ -1,0 +1,25 @@
+James O'Connor
+Java Backend Engineer
+Email: james.oconnor@example.com | Phone: +44-20-7946-0958 | Location: London, UK
+Total Experience: 10 years
+
+SUMMARY
+Java backend engineer for high-throughput trading systems.
+
+SKILLS
+Java, Spring Boot, Kafka, PostgreSQL, Redis, Microservices, Kubernetes, AWS, System Design
+
+EXPERIENCE
+- Staff Engineer, Revolut (2020 - Present)
+  Owns the FX execution service.
+- Senior Engineer, Goldman Sachs (2015 - 2020)
+  Worked on GS-DB market data platform.
+- Software Engineer, Thomson Reuters (2013 - 2015)
+  Eikon plugins.
+
+EDUCATION
+- M.Sc., CS, Imperial College London (2013)
+- B.Sc., CS, University of Manchester (2012)
+
+PROJECTS
+- JCP member; contributor to OpenJDK.

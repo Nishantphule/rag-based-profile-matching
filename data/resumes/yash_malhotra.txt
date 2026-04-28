@@ -1,0 +1,22 @@
+Yash Malhotra
+Frontend Engineer
+Email: yash.malhotra@example.com | Phone: +91-98888-11111 | Location: Delhi, India
+Total Experience: 3 years
+
+SUMMARY
+Frontend engineer comfortable with React and design systems.
+
+SKILLS
+JavaScript, TypeScript, React, Next.js, Tailwind CSS, Storybook, Webpack, Accessibility
+
+EXPERIENCE
+- Frontend Engineer, Hashnode (2022 - Present)
+  Owns the editor surface.
+- Junior FE Engineer, Unacademy (2021 - 2022)
+  Worked on the live class viewer.
+
+EDUCATION
+- B.Tech, ECE, NSUT Delhi (2021)
+
+PROJECTS
+- Maintainer of a React DataGrid library (700 stars).

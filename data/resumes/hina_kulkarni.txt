@@ -1,0 +1,24 @@
+Hina Kulkarni
+Engineering Manager
+Email: hina.kulkarni@example.com | Phone: +91-97777-99999 | Location: Bangalore, India
+Total Experience: 12 years
+
+SUMMARY
+EM with 12 years experience, last 4 leading platform teams of 8-15 engineers.
+
+SKILLS
+Engineering Management, Hiring, System Design, Python, Java, AWS, Kubernetes, Coaching
+
+EXPERIENCE
+- Engineering Manager, Atlassian (2020 - Present)
+  Manages two platform teams (12 engineers).
+- Tech Lead, ThoughtWorks (2015 - 2020)
+  Tech lead on multiple consulting engagements.
+- Software Engineer, Infosys (2012 - 2015)
+  Java services.
+
+EDUCATION
+- B.Tech, CSE, VJTI Mumbai (2012)
+
+PROJECTS
+- Speaker at LeadDev London 2023.

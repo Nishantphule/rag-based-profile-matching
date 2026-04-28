@@ -1,0 +1,22 @@
+Arjun Patel
+DevOps Engineer
+Email: arjun.patel@example.com | Phone: +91-96666-77777 | Location: Ahmedabad, India
+Total Experience: 6 years
+
+SUMMARY
+DevOps and platform engineer with cloud-native expertise.
+
+SKILLS
+Kubernetes, Terraform, AWS, GCP, Helm, ArgoCD, Prometheus, Grafana, Python, Bash
+
+EXPERIENCE
+- Senior DevOps Engineer, Cred (2021 - Present)
+  Owned the multi-region EKS platform; drove cost down 30%.
+- DevOps Engineer, Practo (2018 - 2021)
+  Built CI/CD with ArgoCD for 80+ services.
+
+EDUCATION
+- B.E., IT, L.D. College of Engineering (2018)
+
+PROJECTS
+- OSS contributor to kube-prometheus-stack helm chart.

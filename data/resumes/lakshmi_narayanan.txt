@@ -1,0 +1,25 @@
+Lakshmi Narayanan
+Lead Data Scientist
+Email: lakshmi.n@example.com | Phone: +91-95555-77777 | Location: Chennai, India
+Total Experience: 11 years
+
+SUMMARY
+Lead DS with 11 years across e-commerce and travel. Built ML platforms from 0->1 twice.
+
+SKILLS
+Python, SQL, Spark, Machine Learning, Deep Learning, MLOps, AWS, Kubernetes, Mentorship
+
+EXPERIENCE
+- Lead Data Scientist, MakeMyTrip (2020 - Present)
+  Owns the demand forecasting suite (hotel + flights).
+- Senior Data Scientist, Amazon India (2016 - 2020)
+  Built last-mile ETA models.
+- Data Scientist, Mu Sigma (2013 - 2016)
+  Marketing analytics for FMCG.
+
+EDUCATION
+- M.S., Stats, University of Michigan (2013)
+- B.Tech, CSE, Anna University (2011)
+
+PROJECTS
+- Mentor on TopMate; 200+ sessions.

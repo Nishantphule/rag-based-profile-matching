@@ -1,0 +1,22 @@
+Vikram Nair
+Backend Engineer
+Email: vikram.nair@example.com | Phone: +91-99887-66554 | Location: Chennai, India
+Total Experience: 7 years
+
+SUMMARY
+Backend engineer with deep experience in distributed systems and high-throughput Python services.
+
+SKILLS
+Python, Go, FastAPI, Django, PostgreSQL, Redis, Kafka, Kubernetes, AWS, System Design
+
+EXPERIENCE
+- Senior Backend Engineer, Postman (2021 - Present)
+  Owned the runtime service handling 12B requests/month.
+- Backend Engineer, Zerodha (2017 - 2021)
+  Built order management subsystems in Go.
+
+EDUCATION
+- B.Tech, ECE, VIT Vellore (2017)
+
+PROJECTS
+- Maintainer of an internal Python OpenTelemetry library.

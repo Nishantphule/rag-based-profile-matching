@@ -1,0 +1,23 @@
+Pooja Desai
+Bioinformatics Researcher
+Email: pooja.desai@example.com | Phone: +91-99999-22222 | Location: Bangalore, India
+Total Experience: 6 years
+
+SUMMARY
+Researcher applying ML to genomic data.
+
+SKILLS
+Python, R, Machine Learning, Bioinformatics, Genomics, Bioconductor, PyTorch, Statistics
+
+EXPERIENCE
+- Senior Researcher, Strand Life Sciences (2020 - Present)
+  ML for variant classification.
+- Research Associate, NCBS Bangalore (2018 - 2020)
+  Single-cell RNA-seq pipelines.
+
+EDUCATION
+- Ph.D., Computational Biology, IISc Bangalore (2018)
+- M.Sc., Biotech, University of Pune (2013)
+
+PROJECTS
+- Co-author on Nature Communications 2022.

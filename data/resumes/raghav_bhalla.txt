@@ -1,0 +1,22 @@
+Raghav Bhalla
+Junior Software Engineer
+Email: raghav.bhalla@example.com | Phone: +91-96666-99999 | Location: Bangalore, India
+Total Experience: 1 years
+
+SUMMARY
+Recent grad, 1 year of professional Python and React experience.
+
+SKILLS
+Python, JavaScript, React, Flask, SQL, Git, Docker
+
+EXPERIENCE
+- Software Engineer, Zoho (2024 - Present)
+  Builds internal admin tooling in Flask + React.
+- Software Intern, Zoho (2023 - 2024)
+  Bug fixing on the CRM.
+
+EDUCATION
+- B.E., CSE, PES University (2024)
+
+PROJECTS
+- Personal RAG-on-PDFs side project (GitHub).

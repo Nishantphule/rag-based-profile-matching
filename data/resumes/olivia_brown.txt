@@ -1,0 +1,19 @@
+Olivia Brown
+Marketing Analyst
+Email: olivia.brown@example.com | Phone: +1-212-555-0190 | Location: New York, USA
+Total Experience: 3 years
+
+SUMMARY
+Marketing analyst skilled in funnel and attribution analysis.
+
+SKILLS
+SQL, Excel, Tableau, Looker, Python, Google Analytics, A/B Testing, Attribution
+
+EXPERIENCE
+- Marketing Analyst, Warby Parker (2022 - Present)
+  Owns paid social attribution dashboards.
+- Junior Analyst, Sephora (2021 - 2022)
+  Email campaign analytics.
+
+EDUCATION
+- B.A., Economics, NYU (2021)

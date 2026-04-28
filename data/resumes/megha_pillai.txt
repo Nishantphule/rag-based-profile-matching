@@ -1,0 +1,22 @@
+Megha Pillai
+Senior Python Backend Engineer
+Email: megha.pillai@example.com | Phone: +91-94444-66666 | Location: Bangalore, India
+Total Experience: 6 years
+
+SUMMARY
+Backend engineer with 6 years of Python experience; recently shipped a fully async FastAPI platform handling 30K RPS.
+
+SKILLS
+Python, FastAPI, asyncio, PostgreSQL, Redis, Kafka, Docker, Kubernetes, AWS, System Design, Machine Learning
+
+EXPERIENCE
+- Senior Backend Engineer, Razorpay (2021 - Present)
+  Owns the disputes service. Migrated from Django to FastAPI; P99 latency dropped from 320ms to 90ms.
+- Backend Engineer, Hotstar (2019 - 2021)
+  Worked on the personalization API.
+
+EDUCATION
+- B.Tech, CSE, NIT Calicut (2019)
+
+PROJECTS
+- Speaker at PyCon India 2023 on async patterns.

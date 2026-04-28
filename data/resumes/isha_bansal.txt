@@ -1,0 +1,22 @@
+Isha Bansal
+QA Automation Engineer
+Email: isha.bansal@example.com | Phone: +91-91111-22222 | Location: Noida, India
+Total Experience: 5 years
+
+SUMMARY
+QA engineer focused on test automation for web and mobile.
+
+SKILLS
+Selenium, Playwright, Cypress, Java, Python, Appium, TestRail, JMeter, API Testing
+
+EXPERIENCE
+- Senior QA Engineer, MakeMyTrip (2021 - Present)
+  Built end-to-end Playwright suites for the booking funnel.
+- QA Engineer, HCL (2019 - 2021)
+  Manual + Selenium tests for banking clients.
+
+EDUCATION
+- B.Tech, IT, Amity University (2019)
+
+PROJECTS
+- ISTQB certified.

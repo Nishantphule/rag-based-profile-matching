@@ -1,0 +1,23 @@
+Daniel Park
+Product Manager
+Email: daniel.park@example.com | Phone: +1-650-555-0177 | Location: Mountain View, USA
+Total Experience: 8 years
+
+SUMMARY
+Product manager specializing in developer tools and APIs.
+
+SKILLS
+Product Management, Roadmapping, SQL, A/B Testing, User Research, APIs, Stakeholder Management
+
+EXPERIENCE
+- Group PM, Stripe (2021 - Present)
+  Owned the Issuing API; grew adoption 4x in 2 years.
+- PM, Twilio (2017 - 2021)
+  Launched the Verify API.
+
+EDUCATION
+- MBA, Stanford GSB (2017)
+- B.S., EECS, UC Berkeley (2013)
+
+PROJECTS
+- Mentor at On Deck PM Fellowship.

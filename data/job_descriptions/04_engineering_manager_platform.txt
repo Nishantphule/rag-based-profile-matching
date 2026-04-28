@@ -1,0 +1,20 @@
+Engineering Manager - Platform
+Bluepine Technologies | Bangalore, India
+
+ABOUT THE ROLE
+Lead a 10-12 person platform team responsible for our internal developer platform (Kubernetes, CI/CD, observability).
+
+MUST HAVE
+- 8+ years of engineering experience, 3+ years managing engineers
+- Strong systems / backend background (Python or Java)
+- Experience with Kubernetes and AWS in production
+- Track record of hiring and growing engineers
+
+NICE TO HAVE
+- Worked on internal developer platforms previously
+- Open-source contributions
+
+RESPONSIBILITIES
+- Own roadmap and quarterly planning for the platform team
+- Hire 4 engineers in the next 2 quarters
+- Coach senior engineers and tech leads

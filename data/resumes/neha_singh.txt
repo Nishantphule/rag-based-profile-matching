@@ -1,0 +1,22 @@
+Neha Singh
+Product Designer
+Email: neha.singh@example.com | Phone: +91-95555-66666 | Location: Mumbai, India
+Total Experience: 5 years
+
+SUMMARY
+Product designer focused on B2B SaaS UX and design systems.
+
+SKILLS
+Figma, Sketch, Prototyping, Design Systems, User Research, Accessibility, Webflow
+
+EXPERIENCE
+- Senior Product Designer, Freshworks (2021 - Present)
+  Owns the Freshchat agent console design system.
+- Product Designer, Browserstack (2019 - 2021)
+  Redesigned the live testing dashboard.
+
+EDUCATION
+- B.Des, Visual Communication, NID Ahmedabad (2019)
+
+PROJECTS
+- Speaker, UXIndia 2023.

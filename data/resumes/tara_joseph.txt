@@ -1,0 +1,25 @@
+Tara Joseph
+Cloud Solutions Architect
+Email: tara.joseph@example.com | Phone: +1-415-555-0142 | Location: San Francisco, USA
+Total Experience: 11 years
+
+SUMMARY
+Solutions architect with deep AWS and multi-cloud expertise.
+
+SKILLS
+AWS, GCP, Azure, Kubernetes, Terraform, Serverless, Microservices, Java, Python, Solution Architecture
+
+EXPERIENCE
+- Principal Solutions Architect, Snowflake (2020 - Present)
+  Leads enterprise migration engagements for the West region.
+- Senior SA, AWS (2015 - 2020)
+  Worked with Fortune 500 customers on EKS adoption.
+- Software Engineer, Oracle (2012 - 2015)
+  Java/EE backend services.
+
+EDUCATION
+- M.S., CS, University of Texas Austin (2012)
+- B.Tech, CSE, NIT Surathkal (2010)
+
+PROJECTS
+- AWS Solutions Architect Professional certified.

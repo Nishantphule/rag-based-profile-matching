@@ -1,0 +1,23 @@
+Sara Mehta
+AI Research Engineer
+Email: sara.mehta@example.com | Phone: +91-91234-56789 | Location: Bangalore, India
+Total Experience: 6 years
+
+SUMMARY
+Research-leaning ML engineer with publications at NeurIPS and ACL. Specializes in retrieval-augmented generation and evaluation.
+
+SKILLS
+Python, PyTorch, JAX, Transformers, RAG, LLMs, Information Retrieval, FAISS, Weaviate, Distributed Training, Deep Learning
+
+EXPERIENCE
+- Research Engineer, Google DeepMind (contract) (2022 - Present)
+  Worked on long-context retrieval for code generation.
+- Applied Scientist, Amazon Alexa AI (2019 - 2022)
+  Improved slot filling accuracy by 9% using contrastive pretraining.
+
+EDUCATION
+- M.S., Machine Learning, Carnegie Mellon University (2019)
+- B.Tech, CSE, IIT Delhi (2018)
+
+PROJECTS
+- First-author NeurIPS 2023 paper on dense retrieval evaluation.

@@ -1,0 +1,22 @@
+Liam Walsh
+Site Reliability Engineer
+Email: liam.walsh@example.com | Phone: +353-1-555-0123 | Location: Dublin, Ireland
+Total Experience: 9 years
+
+SUMMARY
+SRE focused on observability and incident response.
+
+SKILLS
+Kubernetes, AWS, Go, Python, Prometheus, Grafana, Loki, Tempo, Linux, SLOs
+
+EXPERIENCE
+- Staff SRE, Stripe (Dublin) (2020 - Present)
+  Owns the global observability platform.
+- SRE, Intercom (2016 - 2020)
+  Built incident management tooling.
+
+EDUCATION
+- B.Sc., Computer Science, Trinity College Dublin (2015)
+
+PROJECTS
+- Co-author of the internal incident postmortem template.

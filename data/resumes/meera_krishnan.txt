@@ -1,0 +1,23 @@
+Meera Krishnan
+Computer Vision Engineer
+Email: meera.krishnan@example.com | Phone: +91-97777-88888 | Location: Bangalore, India
+Total Experience: 7 years
+
+SUMMARY
+Computer vision engineer working on autonomous robotics.
+
+SKILLS
+Python, C++, PyTorch, OpenCV, Computer Vision, ROS, TensorRT, CUDA, Deep Learning, Machine Learning
+
+EXPERIENCE
+- CV Lead, Ati Motors (2020 - Present)
+  Owned perception stack for autonomous industrial vehicles.
+- CV Engineer, Mahindra Electric (2017 - 2020)
+  Built lane and obstacle detection models.
+
+EDUCATION
+- M.S., Robotics, ETH Zurich (2017)
+- B.E., Mechanical, PSG Tech (2015)
+
+PROJECTS
+- Built an open-source ROS2 perception toolkit.
